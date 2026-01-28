@@ -1,4 +1,9 @@
-git clone https://github.com/TomFreudenberg/dell-bios-fan-control
+
+
+sudo apt install git cmake i8kutils
+git clone https://github.com/TomFreudenberg/dell-bios-fan-control.git
+cd dell-bios-fan-control
+make 
 
 nano ~/fanctl.sh
 ----------------------------
