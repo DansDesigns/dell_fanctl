@@ -1,0 +1,32 @@
+nano ~/fanctl.sh
+----------------------------
+
+#!/bin/bash
+cd dell-bios-fan-control
+sudo ./dell-bios-fan-control 0
+i8kctl fan 0 2
+
+-------------------------------
+
+sudo nano /etc/systemd/system/fanctl.service
+
+------------------------------
+
+[Unit]
+Description=Dell fan control
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/dan/fanctl.sh
+
+[Install]
+WantedBy=multi-user.target
+
+-----------------------------
+
+Then:
+
+sudo systemctl daemon-reload
+sudo systemctl enable fanctl.service
+sudo systemctl start fanctl.service
